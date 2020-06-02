@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+ 
+   <camelContext xmlns="http://camel.apache.org/schema/spring">
+   	<route>
+   		<from uri="file://src/test/data/inbox"/>
+   		<process ref="fileProcessor"></process>
+   		<to uri="file://src/test/data/uppercaseout"/>
+   		<transform>
+   			<simple>
+   				${body.toLowerCase()}
+   			</simple>
+   		</transform>
+   		<to uri="file://src/test/data/lowercaseout"/>
+   			<transform>
+   			<simple>
+   				---------------Processing Completed----------
+   			</simple>
+   		</transform>
+   		<to uri="stream:out"/>
+   	<stop/>	
+   	</route>
+  </camelContext> 
+  <bean id="fileProcessor" class="com.amoeba.processor.FileProcessor"/>
+  
+ </beans>

@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "myapp.path",
+    "type": "java.lang.String",
+    "description": "A description for 'myapp.path'"
+  },
+  {
+    "name": "input.path",
+    "type": "java.lang.String",
+    "description": "A description for 'input.path'"
+  },
+  {
+    "name": "output.path",
+    "type": "java.lang.String",
+    "description": "A description for 'output.path'"
+  }
+]}
